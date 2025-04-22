@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <h1>Mid Term - Abubakar</h1>
+        <p>Environment: <span id="env"></span></p>
+        <script>
+            document.getElementById("env").innerHTML = document.location.hostname.includes("azurewebsites")?"Azure" : "Unknown";
+        </script>
+    </body>
+</html>
