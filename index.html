@@ -3,7 +3,16 @@
         <h1>Mid Term - Abubakar</h1>
         <p>Environment: <span id="env"></span></p>
         <script>
-            document.getElementById("env").innerHTML = document.location.hostname.includes("azurewebsites")?"Azure" : "Unknown";
+            fetch('/api/environment') // Replace with your API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("env").innerHTML = data.environment || "Unknown";
+                })
+                .catch(error => {
+                    console.error("Error fetching environment:", error);
+                    document.getElementById("env").innerHTML = "Unknown";
+                }
+            );
         </script>
     </body>
 </html>
